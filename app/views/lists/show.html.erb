@@ -10,12 +10,12 @@
   <%= @list.post %>
 </p>
 <p>
-	<%= form_tag share_list_path do  %>
-		<p>
+	<%= form_tag share_list_path, :class => "well form-actions" do  %>
+		<fieldset class="fields">
     	Enter email <%= text_field_tag :email, params[:email] %>
 			<%= hidden_field(:list, :id) %>
-    	<%= submit_tag "Share list", :name => nil %>
-  	</p>
+    	<%= submit_tag "Share list", :name => nil, :class => "btn btn-primary my_button" %>
+		</fieldset>
 	<% end %>
 </p>
 
