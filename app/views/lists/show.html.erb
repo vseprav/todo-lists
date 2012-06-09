@@ -9,7 +9,15 @@
   <b>Post:</b>
   <%= @list.post %>
 </p>
-
+<p>
+	<%= form_tag share_list_path do  %>
+		<p>
+    	Enter email <%= text_field_tag :email, params[:email] %>
+			<%= hidden_field(:list, :id) %>
+    	<%= submit_tag "Share list", :name => nil %>
+  	</p>
+	<% end %>
+</p>
 
 <%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>
