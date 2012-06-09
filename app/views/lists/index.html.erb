@@ -4,6 +4,7 @@
 		<tr>
 		  <th>Title</th>
 		  <th>Post</th>
+			<th>Who shared</th>
 		  <th></th>
 		  <th></th>
 		  <th></th>
@@ -13,6 +14,7 @@
 		<tr>
 		  <td><%= list.title %></td>
 		  <td><%= list.post %></td>
+			<td><%= list.share.where(:user_id=>current_user.id).first.who_shared %></td>
 		  <td><%= link_to 'Show', list %></td>
 		  <td><%= link_to 'Edit', edit_list_path(list) %></td>
 		  <td><%= link_to 'Destroy', list, :confirm => 'Are you sure?', :method => :delete %></td>

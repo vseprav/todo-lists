@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120609100628) do
+ActiveRecord::Schema.define(:version => 20120609171250) do
 
   create_table "lists", :force => true do |t|
     t.string   "title"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20120609100628) do
     t.integer  "list_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "who_shared"
   end
 
   create_table "users", :force => true do |t|
