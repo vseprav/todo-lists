@@ -1,7 +1,7 @@
 .container {
 	margin:0 auto 0;
 	text-align: justify;
-	width: 650px;
+	width: 900px;
 }
 .list {
 	padding: 5px;
@@ -9,6 +9,8 @@
 .my_button {
 	margin-bottom: 8px;
 }
-
+.my_form input{
+	width:100px;
+}
 
 

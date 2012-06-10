@@ -8,19 +8,8 @@
 		  <th></th>
 		  <th></th>
 		</tr>
-
-	<% @lists.each do |list| %>
-		<tr>
-		  <td><%= list.title %></td>
-		  <td><%= list.post %></td>
-			<% if shared = list.share.where(:user_id=>current_user.id).first.who_shared  %>
-				<td>Shared by <%= shared %>  </td>
-			<% end %>
-		  <td><%= link_to 'Show', list %></td>
-		  <td><%= link_to 'Edit', edit_list_path(list) %></td>
-		  <td><%= link_to 'Destroy', list, :confirm => 'Are you sure?', :method => :delete %></td>
-		</tr>
-	<% end %>
+			<div id="render_list"><%= render :partial => 'lists' %></div>
+			<%= subscribe_to share_list_path %>
 	</table>
 </div>
 <br />

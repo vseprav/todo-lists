@@ -1,0 +1,19 @@
+<% @lists.each do |list| %>
+		<tr>
+		  <td><%= list.title %></td>
+		  <td><%= list.post %></td>
+			<% if shared = list.share.where(:user_id=>current_user.id).first.who_shared  %>
+				<td>Shared by <%= shared %>  </td>
+			<% end %>
+		  <td><%= link_to 'Show', list %></td>
+		  <td><%= link_to 'Edit', edit_list_path(list) %></td>
+		  <td><%= link_to 'Destroy', list, :confirm => 'Are you sure?', :method => :delete %></td>
+			<td>
+				<%= form_tag share_list_path, :class => "well form-actions my_form" do  %>
+    			Enter email <%= text_field_tag :email, params[:email] %>
+					<%= hidden_field(:list,:id,:value => list.id) %>
+    			<%= submit_tag "Share list", :name => nil, :class => "btn btn-primary my_button" %>
+				<% end %>
+		</td>
+		</tr>
+	<% end %>

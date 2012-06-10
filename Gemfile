@@ -9,7 +9,8 @@ gem 'sqlite3'
 gem 'devise', '1.1.rc0'
 gem 'factory_girl_rails'
 gem 'rspec-rails', '2.6', :group => [:test, :development]
-
+gem 'private_pub'
+gem 'jquery-rails', '>= 1.0.12'
 
 group  :test do
 	gem 'database_cleaner'

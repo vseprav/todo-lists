@@ -54,9 +54,9 @@ class ListsController < ApplicationController
 		respond_to do |format|
     	if share_before.empty? && (params[:email]!=current_user.email)
 				share_user.share.create!(:list_id => @list.id, :who_shared => current_user.email)
-      	format.html { redirect_to(@list, :notice => 'List was successfully shared.') }
+      	format.html { redirect_to(lists_path, :notice => 'List was successfully shared.') }
     	else
-      	format.html { redirect_to(@list, :notice => 'Shared was faild') }
+      	format.html { redirect_to(lists_path, :notice => 'Shared was faild') }
     	end
 		end
 	end
