@@ -11,7 +11,6 @@ gem 'factory_girl_rails'
 gem 'rspec-rails', '2.6', :group => [:test, :development]
 gem 'private_pub'
 gem 'jquery-rails', '>= 1.0.12'
-gem 'coffee-script'
 gem 'execjs'
 gem 'therubyracer'
 gem 'barista'

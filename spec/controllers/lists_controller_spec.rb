@@ -47,4 +47,12 @@ describe ListsController do
     @user.list.empty?.should be_true 
 	end
 	
+	it 'share task' do
+	  share_user = Factory(:user,:email=>"vseprav@ukr.net")
+	  list = @user.list.create!(:title=>"Title share list")
+	  params = {:email=>share_user.email,:list=>{:id=>list.id}}
+	  get 'share_list', params
+	  share_user.list[0].title.should == list.title
+	end
+	
 end
