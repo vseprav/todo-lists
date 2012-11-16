@@ -47,19 +47,19 @@ class ListsController < ApplicationController
     end
   end
 
-	def share_list
-		@list = List.find(params[:list][:id])
-		share_user = User.where(:email => params[:email]).first
-		share_before = @list.share.where(:user_id=>share_user.id)
-		respond_to do |format|
-    	if share_before.empty? && (params[:email]!=current_user.email)
-				share_user.share.create!(:list_id => @list.id, :who_shared => current_user.email)
+  def share_list
+    @list = List.find(params[:list][:id])
+    share_user = User.find_by_email(params[:email])
+    share_before = @list.share.where(:user_id=>share_user.id)
+    respond_to do |format|
+      if share_before.empty? && (params[:email]!=current_user.email)
+	share_user.share.create!(:list_id => @list.id, :who_shared => current_user.email)
       	format.html { redirect_to(lists_path, :notice => 'List was successfully shared.') }
-    	else
+      else
       	format.html { redirect_to(lists_path, :notice => 'Shared was faild') }
-    	end
-		end
-	end
+      end
+    end
+  end
 
   def destroy
     @list = List.find(params[:id])
